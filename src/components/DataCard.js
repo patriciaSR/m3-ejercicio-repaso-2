@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 
 class DataCard extends React.Component {
   render() {
+    const { userData } = this.props;
     const {
       name,
       email,
       passwords,
       bank
-    } = this.props.userData
+    } = userData;
 
 
     return (

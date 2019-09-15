@@ -8,28 +8,29 @@ class Clock extends React.Component {
     };
   }
 
-  updateDate() {
-    this.setState({
-      date: new Date()
-    })
-  }
-
   componentDidMount() {
-    this.timer = setInterval(() => this.updateDate(), 1000)
+    this.timer = setInterval(() => this.updateDate(), 1000);
   }
 
   componentWillUnmount() {
     clearInterval(this.timer);
   }
 
+  updateDate() {
+    this.setState({
+      date: new Date()
+    });
+  }
+
   render() {
-    const hours = this.state.date.getHours();
-    const min = this.state.date.getMinutes();
-    const sec = this.state.date.getSeconds();
+    const { date } = this.state;
+    const hours = date.getHours();
+    const min = date.getMinutes();
+    const sec = date.getSeconds();
 
     return (
       <p className="clock">{hours}:{min}:{sec}</p>
-    )
+    );
   }
 }
 

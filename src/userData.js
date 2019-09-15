@@ -2,7 +2,7 @@ const ENDPOINT = 'https://raw.githubusercontent.com/Adalab/m3-tutoria-2/master/a
 
 function getData() {
   return fetch(ENDPOINT)
-    .then(response => response.json());
+    .then((response) => response.json());
 }
 
 export default getData;

@@ -1,20 +1,19 @@
 import React from 'react';
-import DataCard from './DataCard';
 import PropTypes from 'prop-types';
+import DataCard from './DataCard';
 
 class DataList extends React.Component {
   render() {
-    const userData = this.props.userData;
+    const { userData } = this.props;
 
     return (
       <ul className="result__list">
         {userData
-        .map((user, index) => (
-          <DataCard userData={user} key={index} />
-        ))
-        }
+          .map((user, index) => (
+            <DataCard userData={user} key={index} />
+          ))}
       </ul>
-    )
+    );
   }
 }
 

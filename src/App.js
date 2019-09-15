@@ -18,7 +18,7 @@ class App extends React.Component {
     getData().then((data) => {
       const userData = this.getIdArray(data.data);
       this.setState({
-        userData: userData,
+        userData, // userData: userData
         date: data.date
       });
     });
@@ -29,18 +29,16 @@ class App extends React.Component {
       ...user,
       id: index + 1
     }));
-  };
+  }
 
-  updateState(event){
-    const name = event.currentTarget.name;
-    const newValue = event.currentTarget.value;
+  updateState(event) {
+    const { name, value } = event.currentTarget;
     this.setState({
-      [name]:  newValue
-    })
+      [name]: value
+    });
   }
 
   render() {
-
     return (
       <div className="App">
         <Page
