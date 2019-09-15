@@ -8,8 +8,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       userData: this.getIdArray(),
-      emailFilter: ''
-    }
+      emailFilter: '',
+    };
 
     this.updateState = this.updateState.bind(this);
   }

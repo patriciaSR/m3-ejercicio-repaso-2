@@ -4,9 +4,13 @@ import DataList from './DataList';
 import Footer from './Footer';
 import PropTypes from 'prop-types';
 import Filters from './Filters';
+import Status from './Status';
 
 class Page extends React.Component {
   render() {
+    const { emailFilter, userData } = this.props.userData;
+    const filteredData = userData.filter(user => !emailFilter || user.email.includes(emailFilter));
+
     return (
       <>
         <Header />
@@ -14,7 +18,8 @@ class Page extends React.Component {
           filters={this.props.userData.emailFilter}
           updateState={this.props.updateState}
         />
-        <DataList userData={this.props.userData} />
+        <Status status={filteredData.length} total={userData.length} />
+        <DataList userData={filteredData} />
         <Footer />
       </>
     )
