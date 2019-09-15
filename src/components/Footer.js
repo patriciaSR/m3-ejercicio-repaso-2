@@ -1,9 +1,11 @@
 import React from 'react';
+import Clock from './Clock';
 
-const Footer = () => (
+const Footer = (props) => (
   <footer className="page__footer">
     <span className="footer__copy">loh</span>
-    <span className="footer__date">14 de Septiembre</span>
+    <span className="footer__date">{props.date}</span>
+    <Clock />
   </footer>
 );
 

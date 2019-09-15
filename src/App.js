@@ -1,26 +1,34 @@
 import React from 'react';
 import './App.css';
-import { userData } from './userData';
+import getData from './userData';
 import Page from './components/Page';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userData: this.getIdArray(),
+      userData: [],
       emailFilter: '',
     };
 
     this.updateState = this.updateState.bind(this);
   }
 
-  getIdArray() {
-    return (
-      userData.map((user, index) => ({
-        ...user,
-        "id": index + 1
-      }))
-    );
+  componentDidMount() {
+    getData().then((data) => {
+      const userData = this.getIdArray(data.data);
+      this.setState({
+        userData: userData,
+        date: data.date
+      });
+    });
+  }
+
+  getIdArray(userData) {
+    return userData.map((user, index) => ({
+      ...user,
+      id: index + 1
+    }));
   };
 
   updateState(event){

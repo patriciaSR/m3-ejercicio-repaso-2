@@ -8,7 +8,7 @@ import Status from './Status';
 
 class Page extends React.Component {
   render() {
-    const { emailFilter, userData } = this.props.userData;
+    const { emailFilter, userData, date } = this.props.userData;
     const filteredData = userData.filter(user => !emailFilter || user.email.includes(emailFilter));
 
     return (
@@ -20,7 +20,7 @@ class Page extends React.Component {
         />
         <Status status={filteredData.length} total={userData.length} />
         <DataList userData={filteredData} />
-        <Footer />
+        <Footer date={date}/>
       </>
     )
   }
