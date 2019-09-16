@@ -9,12 +9,18 @@ import Status from './Status';
 class Page extends React.Component {
   render() {
     const {
-      emailFilter,
       userData,
       date,
-      updateState } = this.props;
-    const filteredData = userData.filter((user) => !emailFilter || user.email.includes(emailFilter));
+      updateState
+    } = this.props;
 
+    const {
+      emailFilter,
+      userData: data
+    } = userData;
+
+
+    const filteredData = data.filter((user) => !emailFilter || user.email.includes(emailFilter));
     return (
       <>
         <Header />
@@ -22,7 +28,7 @@ class Page extends React.Component {
           filters={emailFilter}
           updateState={updateState}
         />
-        <Status status={filteredData.length} total={userData.length} />
+        <Status status={filteredData.length} total={data.length} />
         <DataList userData={filteredData} />
         <Footer date={date} />
       </>

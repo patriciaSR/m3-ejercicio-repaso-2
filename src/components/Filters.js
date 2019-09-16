@@ -13,7 +13,7 @@ class Filters extends React.Component {
         <label htmlFor="emailFilter" className="emailFilter">Filtra por email</label>
         <input type="text" name="emailFilter" id="emailFilter" value={filters} onChange={updateState} />
       </>
-    )
+    );
   }
 }
 
