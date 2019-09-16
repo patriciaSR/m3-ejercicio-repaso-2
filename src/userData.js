@@ -5,4 +5,4 @@ function getData() {
     .then((response) => response.json());
 }
 
-export default getData;
+export { getData };

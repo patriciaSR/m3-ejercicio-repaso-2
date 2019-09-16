@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import getData from './userData';
+import { getData } from './userData';
 import Page from './components/Page';
 
 class App extends React.Component {
