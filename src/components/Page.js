@@ -20,7 +20,7 @@ class Page extends React.Component {
     } = userData;
 
 
-    const filteredData = data.filter((user) => !emailFilter || user.email.includes(emailFilter));
+    const filteredData = data.filter((user) => !emailFilter || user.email.toLowerCase().includes(emailFilter));
     return (
       <>
         <Header />

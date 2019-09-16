@@ -34,7 +34,7 @@ class App extends React.Component {
   updateState(event) {
     const { name, value } = event.currentTarget;
     this.setState({
-      [name]: value
+      [name]: value.toLowerCase()
     });
   }
 
